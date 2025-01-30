@@ -27,14 +27,15 @@ jobs:
     runs-on: ubuntu-latest
     # Define the steps for this job
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       name: 'Checkout repository'
 
     - name: 'Install Dependencies'
       run: npm install
+      working-directory: ./web
     
     - name: 'Run Tests'
-      run: npm run test
+      run: npm run test -- --verbose
 
   # Run the linter to check for code style issues
   lint:
